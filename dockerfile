@@ -28,7 +28,7 @@ RUN apt-get install -y \
     python3-matplotlib
 
 # Install SBCL (Steel Bank Common Lisp)
-RUN apt-get install -y clisp
+RUN apt-get install -y clisp cl-quicklisp
 
 # Install SWI-Prolog
 RUN apt-get install -y swi-prolog
