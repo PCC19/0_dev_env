@@ -1,5 +1,5 @@
 
-.PHONY = build b lisp python prolog clean stop
+.PHONY = build run b lisp py prolog r s clean stop
 
 image_name = dev-env
 container_name = dev-env
@@ -30,6 +30,14 @@ py: run
 
 prolog: run
 	docker exec -it $(container_name) prolog
+
+r: run
+	docker exec -it $(container_name) R
+
+s: run
+	docker exec -it -e USER=rstudio $(container_name) /usr/sbin/rstudio-server restart 
+	open http://localhost:8789
+
 
 clean: FORCE
 	docker image rm $(image_name) 

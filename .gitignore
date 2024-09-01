@@ -15,3 +15,6 @@ form-init*
 .nrepl-port
 .cpcache/
 .DS_Store
+.RData
+.RHistory
+
