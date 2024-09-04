@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     libedit-dev \
     libunwind-dev \
     lsb-release \
-    gnuplot
+    gnuplot \
+    gnuplot-x11
 
 # Install python system-wide
 RUN apt-get install -y \
@@ -62,6 +63,9 @@ RUN rm rstudio-server-2024.04.2-764-amd64.deb
 
 EXPOSE 8787
 
+# Utilies
+RUN apt-get install -y gnumeric
+RUN python3 -m pip install visidata --break-system-packages
 
 
 # Set working directory
