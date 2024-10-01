@@ -17,4 +17,6 @@ form-init*
 .DS_Store
 .RData
 .RHistory
-
+matrix.gnu
+mm.dat
+scatter.dat
