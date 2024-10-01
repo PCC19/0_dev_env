@@ -27,7 +27,10 @@ COPY ./requirements.txt /
 
 RUN apt-get install -y \
     python3 \
-    python3-pip
+    python3-pip \
+    python3-matplotlib
+# Precisa instalar matplotlib pelo apt-get senoa nao plota imagens
+# de dentro do container
 
 # Install SBCL (Steel Bank Common Lisp)
 RUN apt-get install -y clisp cl-quicklisp
