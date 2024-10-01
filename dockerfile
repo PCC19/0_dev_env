@@ -23,10 +23,11 @@ RUN apt-get update && apt-get install -y \
     gnuplot-x11
 
 # Install python system-wide
+COPY ./requirements.txt /
+
 RUN apt-get install -y \
     python3 \
-    python3-pip \
-    python3-matplotlib
+    python3-pip
 
 # Install SBCL (Steel Bank Common Lisp)
 RUN apt-get install -y clisp cl-quicklisp
@@ -61,12 +62,10 @@ RUN gdebi --n rstudio-server-2024.04.2-764-amd64.deb
 RUN echo "auth-none=1" >> /etc/rstudio/rserver.conf
 RUN rm rstudio-server-2024.04.2-764-amd64.deb
 
-EXPOSE 8787
-
 # Utilies
 RUN apt-get install -y gnumeric
 RUN python3 -m pip install visidata --break-system-packages
-
+RUN cat requirements.txt | xargs -n 1 python3 -m pip install --break-system-packages
 
 # Set working directory
 WORKDIR /work
@@ -74,6 +73,8 @@ WORKDIR /work
 # Expose ports for development
 EXPOSE 3000
 EXPOSE 4000
+EXPOSE 8787
+EXPOSE 8888
 
 # Set default command
 CMD ["bash"]
