@@ -1,7 +1,9 @@
 .PHONY = build run b lisp py prolog r s clean stop
 
+#container_name = dev-env
+path := $(CURDIR)
+container_name = $(notdir $(path))
 image_name = dev-env
-container_name = dev-env
 
 display_mac = -e DISPLAY=docker.for.mac.host.internal:0
 #docker run -t -d --rm --name gui -e DISPLAY=docker.for.mac.host.internal:0 -v /tmp/.X11-unix:/tmp/X11-unix -v $(PWD):/work -p:8789:8787 continuumio/anaconda3 /bin/bash
