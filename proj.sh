@@ -7,13 +7,13 @@ if [ "$#" -ne 1 ]; then
 fi
 
 devenv='/Users/dev/PROJETOS/0_dev_env'
+path='/Users/dev/PROJETOS'
 # Create the main directory and subdirectories 'src' and 'data'
-mkdir -p "$1/src" "$1/data"
-cd $1
+mkdir -p "$path/$1/src" "$path/$1/data"
+cd $path/$1
 cp $devenv/Makefile .
 cp $devenv/dockerfile .
 cp $devenv/requirements.txt .
-cp $devenv/create.sh .
 
-
-echo "Directory structure created: $1/src and $1/data"
+echo "Directory structure created: $path/$1/src and $path/$1/data"
+cd $path/$1
